@@ -1,20 +1,22 @@
-export const hello = () => {
-    console.log('hello')
+const DEGREE = Math.PI / 180
+
+export const drawExample = (ctx) => {
+    ctx.beginPath()
+    const r = 50
+    const start = 90
+    const end = 360
+    ctx.arc(75, 75, r, DEGREE * start, DEGREE * end, false) // Outer circle
+    // ctx.arc(75, 75, 50, 0, Math.PI * 2, true) // Outer circle
+    // ctx.moveTo(110, 75)
+    // ctx.arc(75, 75, 35, 0, Math.PI, false) // Mouth (clockwise)
+    // ctx.moveTo(65, 65)
+    // ctx.arc(60, 65, 5, 0, Math.PI * 2, true) // Left eye
+    // ctx.moveTo(95, 65)
+    // ctx.arc(90, 65, 5, 0, Math.PI * 2, true) // Right eye
+    ctx.stroke()
 }
 
-/**
- * 캔버스 사용 가능 여부 반환
- * @param ctx
- * @returns {boolean}
- */
-export const isDrawable = (ctx) => !!ctx.getContext
-
-export const drawRect = ({ ctx, style, rect }) => {
-    if (style) {
-        ctx.fillStyle = style
-    }
-    ctx.fillRect(...rect)
-}
+export const getPosition = (ctx) => {}
 // todo 1. 원을 그리는 기능
 // todo 2. 부채꼴을 그리는 기능
 // todo 3. 시간표를 채우기 위해 마우스의 움직임을 판별하는 기능
